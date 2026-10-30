@@ -5,17 +5,17 @@ st.set_page_config(
     page_title="Gelişmiş Fortran Eğitimi", page_icon="💻", layout="centered"
 )
 
-st.title("BUNLARIDA ÖĞRENİN ARTIK LA GARDAŞ")
+st.title("BUNLARI DA ÖĞRENİN LA GARDAŞ")
 st.write(
-    "Fortran'ın sayısal hesaplama, matris işlemleri, sayısal türev ve dizi"
-    " yönetimini içeren "
+    "Fortran'ın sayısal hesaplama, matris işlemleri, sayısal türev ve pratik uygulama"
+    " projelerini içeren "
     "kapsamlı eğitim modülüne hoş geldin! Aşağıdan incelemek istediğin konuyu"
     " seçebilirsin."
 )
 
 st.divider()
 
-# Kullanıcıya Konu Seçimi Sunma
+# Kullanıcıya Konu Seçimi Sunma (6 Seçenek)
 secim = st.radio(
     "**Hangi konuyu incelemek istiyorsun?**",
     [
@@ -24,6 +24,7 @@ secim = st.radio(
         "3. İleri, Geri ve Ortalama Türev Hesabı",
         "4. Belirli Aralıkta Fonksiyon Değerlerini Hesaplama",
         "5. Parametre (`parameter`) ve Boyut (`dimension`) Mantığı",
+        "6. Kapsamlı Pratik Proje: Aralık, Dosyalama ve Çoklu Türev",
     ],
 )
 
@@ -205,5 +206,72 @@ print *, "Oluşturulan dizinin boyutu:", size(notlar)
     """,
       language="fortran",
   )
+
+elif "Pratik Proje" in secim:
+  st.subheader(
+      " 6. Kapsamlı Pratik Proje: Aralık, Dosyalama ve Çoklu Türev"
+  )
+  st.write(
+      "Bugün üzerinde çalıştığın bu kod; bir aralığı `n` parçaya bölerek"
+      " diziler (`dimension`) oluşturmayı, bu değerleri harici bir dosyaya"
+      " kaydetmeyi (`open`, `write`, `close`) ve aynı veri seti üzerinden"
+      " **İleri, Geri ve Ortalama Türevleri** döngüler yardımıyla hesaplamayı"
+      " gösteren mükemmel bir mühendislik örneğidir."
+  )
+
+  st.code(
+      """
+program prac1
+    implicit none
+    integer :: i
+    real :: a, b, delta_x
+    integer, parameter :: n = 101
+    real, dimension(n) :: x, y 
+    real :: der1(n), der2(n), der3(n)
+
+    ! Aralık sınırları (Örn: kullanıcıdan alındığı varsayılır)
+    a = 0.0
+    b = 10.0
+
+    delta_x = ((b - a) / real(n - 1))
+    
+    ! 1. Adım: Dizileri doldurma (f(x) = x^2 - 4x + 4)
+    do i = 1, n 
+        x(i) = a + (real(i - 1) * delta_x)
+        y(i) = (x(i)**2 - (4.0 * x(i)) + 4.0) 
+    end do
+
+    ! 2. Adım: Verileri dosyaya yazdırma
+    open(unit=1, file='prac1.ext', status='unknown')
+    do i = 1, n 
+        write(1, *) x(i), y(i) 
+    end do
+    close(unit=1)
+
+    ! 3. Adım: İleri Türev Hesabı
+    print *, "--- Fonksiyon İleri Türev Değerleri ---"
+    do i = 1, n - 1
+        der1(i) = (y(i+1) - y(i)) / delta_x
+        print *, der1(i)
+    end do 
+
+    ! 4. Adım: Geri Türev Hesabı
+    print *, "--- Fonksiyon Geri Türev Değerleri ---"
+    do i = 2, n 
+        der2(i) = (y(i) - y(i-1)) / delta_x
+        print *, der2(i)
+    end do
+
+    ! 5. Adım: Ortalama (Merkezi) Türev Hesabı
+    print *, "--- Fonksiyon Ortalama Türev Değerleri ---"
+    do i = 2, n - 1 
+        der3(i) = (y(i+1) - y(i-1)) / (2.0 * delta_x)
+        print *, der3(i)
+    end do 
+end program prac1
+    """,
+      language="fortran",
+  )
+ 
 
 
