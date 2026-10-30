@@ -32,7 +32,7 @@ st.divider()
 
 # Seçilen Konuya Göre Detaylı İçerik Gösterme
 if "Do Döngüsü" in secim:
-  st.subheader("📌 1. Do Döngüsü (Do Loop Temelleri)")
+  st.subheader(" 1. Do Döngüsü (Do Loop Temelleri)")
   st.write(
       "Fortran'da tekrarlı işlemleri gerçekleştirmek için `do` döngüsü"
       " kullanılır. Standart döngünün yanı sıra **adım (step)** miktarı"
@@ -68,13 +68,13 @@ integer :: k
 do k = 10, 1, -1
     print *, "Geri sayım: ", k
 end do
-print *, "Kalkış! 🚀"
+print *, "Kalkış! "
     """,
       language="fortran",
   )
 
 elif "Matris" in secim:
-  st.subheader("📌 2. Döngüler ile Matris Yazdırma ve İşlemleri")
+  st.subheader(" 2. Döngüler ile Matris Yazdırma ve İşlemleri")
   st.write(
       "Matrisler, çok boyutlu verileri saklamak için kullanılan temel yapı"
       " taşlarıdır. Fortran'da 2 boyutlu matrisleri işlemek için **iç içe iki"
@@ -111,7 +111,7 @@ end do
   )
 
 elif "Türev" in secim:
-  st.subheader("📌 3. İleri, Geri ve Ortalama Türev Hesabı")
+  st.subheader(" 3. İleri, Geri ve Ortalama Türev Hesabı")
   st.write(
       "Sayısal analizde bilgisayarlar analitik türev (formül türevi) yerine"
       " **Sonlu Farklar (Finite Differences)** yöntemini kullanır. $h$ adımı"
@@ -149,7 +149,7 @@ print *, "Merkezi Türev Sonucu  : ", merkez_turev
   )
 
 elif "Fonksiyon" in secim:
-  st.subheader("📌 4. Belirli Aralıkta Fonksiyon Değerlerini Hesaplama")
+  st.subheader(" 4. Belirli Aralıkta Fonksiyon Değerlerini Hesaplama")
   st.write(
       "Bir mühendislik probleminde, belirli bir sınır aralığında ($x_{min}$"
       " ile $x_{max}$ arası) bir fonksiyonun davranışını gözlemlemek için"
@@ -181,7 +181,7 @@ end do
   )
 
 elif "Parametre" in secim:
-  st.subheader("📌 5. Parametre (`parameter`) ve Boyut (`dimension`) Mantığı")
+  st.subheader(" 5. Parametre (`parameter`) ve Boyut (`dimension`) Mantığı")
   st.write(
       "* **`parameter`**: Kodun hiçbir yerinde **değiştirilemeyen sabitleri**"
       " tanımlar (Örn: Pi sayısı, ışık hızı veya maksimum dizi boyutu)."
@@ -209,7 +209,7 @@ print *, "Oluşturulan dizinin boyutu:", size(notlar)
 
 elif "Pratik Proje" in secim:
   st.subheader(
-      "📌 6. Kapsamlı Pratik Proje: Aralık, Dosyalama ve Çoklu Türev"
+      " 6. Kapsamlı Pratik Proje: Aralık, Dosyalama ve Çoklu Türev"
   )
   st.write(
       "Bugün üzerinde çalıştığın bu kod; bir aralığı `n` parçaya bölerek"
@@ -273,7 +273,7 @@ end program prac1
       language="fortran",
   )
   st.success(
-      "💡 Bu kod; dizi mantığı (`dimension`), dosya işlemleri ve sayısal"
+      " Bu kod; dizi mantığı (`dimension`), dosya işlemleri ve sayısal"
       " türevin Fortran'da birleştirilmiş en net halidir!"
   )
 
