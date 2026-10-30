@@ -207,7 +207,5 @@ print *, "Oluşturulan dizinin boyutu:", size(notlar)
   )
 
 st.success(
-    " Bu güncellenmiş kodla arkadaşlarına Fortran'ın sadece bir döngü dili"
-    " değil, güçlü bir bilimsel hesaplama aracı olduğunu çok daha net"
-    " gösterebilirsin!"
+   
 )
