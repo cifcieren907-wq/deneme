@@ -5,7 +5,7 @@ st.set_page_config(
     page_title="Gelişmiş Fortran Eğitimi", page_icon="💻", layout="centered"
 )
 
-st.title("💻 İleri Düzey Fortran Eğitim Platformu")
+st.title("BUNLARIDA ÖĞRENİN ARTIK LA GARDAŞ")
 st.write(
     "Fortran'ın sayısal hesaplama, matris işlemleri, sayısal türev ve dizi"
     " yönetimini içeren "
