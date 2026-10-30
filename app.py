@@ -5,7 +5,7 @@ st.set_page_config(
     page_title="Gelişmiş Fortran Eğitimi", page_icon="💻", layout="centered"
 )
 
-st.title("💻 İleri Düzey Fortran Eğitim Platformu")
+st.title("BUNLARI DA ÖĞRENİN LA GARDAŞ")
 st.write(
     "Fortran'ın sayısal hesaplama, matris işlemleri, sayısal türev ve pratik uygulama"
     " projelerini içeren "
@@ -15,7 +15,7 @@ st.write(
 
 st.divider()
 
-# Kullanıcıya Konu Seçimi Sunma (6 Seçenek)
+# Kullanıcıya Konu Seçimi Sunma
 secim = st.radio(
     "**Hangi konuyu incelemek istiyorsun?**",
     [
@@ -30,8 +30,8 @@ secim = st.radio(
 
 st.divider()
 
-# Seçilen Konuya Göre Detaylı İçerik Gösterme
-if "Do Döngüsü" in secim:
+# Seçilen Konuya Göre Detaylı İçerik Gösterme (Tam eşleşme için sayılarla kontrol ediliyor)
+if secim.startswith("1."):
   st.subheader(" 1. Do Döngüsü (Do Loop Temelleri)")
   st.write(
       "Fortran'da tekrarlı işlemleri gerçekleştirmek için `do` döngüsü"
@@ -73,7 +73,7 @@ print *, "Kalkış! "
       language="fortran",
   )
 
-elif "Matris" in secim:
+elif secim.startswith("2."):
   st.subheader(" 2. Döngüler ile Matris Yazdırma ve İşlemleri")
   st.write(
       "Matrisler, çok boyutlu verileri saklamak için kullanılan temel yapı"
@@ -110,7 +110,7 @@ end do
       " sağlar."
   )
 
-elif "Türev" in secim:
+elif secim.startswith("3."):
   st.subheader(" 3. İleri, Geri ve Ortalama Türev Hesabı")
   st.write(
       "Sayısal analizde bilgisayarlar analitik türev (formül türevi) yerine"
@@ -148,7 +148,7 @@ print *, "Merkezi Türev Sonucu  : ", merkez_turev
       language="fortran",
   )
 
-elif "Fonksiyon" in secim:
+elif secim.startswith("4."):
   st.subheader(" 4. Belirli Aralıkta Fonksiyon Değerlerini Hesaplama")
   st.write(
       "Bir mühendislik probleminde, belirli bir sınır aralığında ($x_{min}$"
@@ -180,7 +180,7 @@ end do
       language="fortran",
   )
 
-elif "Parametre" in secim:
+elif secim.startswith("5."):
   st.subheader(" 5. Parametre (`parameter`) ve Boyut (`dimension`) Mantığı")
   st.write(
       "* **`parameter`**: Kodun hiçbir yerinde **değiştirilemeyen sabitleri**"
@@ -207,7 +207,7 @@ print *, "Oluşturulan dizinin boyutu:", size(notlar)
       language="fortran",
   )
 
-elif "Pratik Proje" in secim:
+elif secim.startswith("6."):
   st.subheader(
       " 6. Kapsamlı Pratik Proje: Aralık, Dosyalama ve Çoklu Türev"
   )
@@ -276,5 +276,4 @@ end program prac1
       " Bu kod; dizi mantığı (`dimension`), dosya işlemleri ve sayısal"
       " türevin Fortran'da birleştirilmiş en net halidir!"
   )
-
 
