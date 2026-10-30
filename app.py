@@ -206,6 +206,4 @@ print *, "Oluşturulan dizinin boyutu:", size(notlar)
       language="fortran",
   )
 
-st.success(
-   
-)
+
